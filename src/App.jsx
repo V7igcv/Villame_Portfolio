@@ -1,14 +1,18 @@
 import Navbar from "./sections/Navbar";
+import Hero from "./sections/Hero/Hero";
+import About from "./sections/About/About";
+import Skills from "./sections/Skills/Skills";
 
 function App() {
   return (
     <>
       <Navbar />
 
-      <main>
-        <div className="h-screen"></div>
-        <div className="h-screen bg-surface"></div>
-      </main>
+      <Hero />
+
+      <About />
+
+      <Skills />
     </>
   );
 }

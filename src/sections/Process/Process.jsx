@@ -1,4 +1,4 @@
-function Hero() {
+function Process() {
   return (
     <section>
       Process
@@ -6,4 +6,4 @@ function Hero() {
   )
 }
 
-export default Hero
+export default Process

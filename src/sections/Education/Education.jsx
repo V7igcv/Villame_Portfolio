@@ -1,4 +1,4 @@
-function Hero() {
+function Education() {
   return (
     <section>
       Education
@@ -6,4 +6,4 @@ function Hero() {
   )
 }
 
-export default Hero
+export default Education

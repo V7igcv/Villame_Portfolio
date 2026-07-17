@@ -1,4 +1,4 @@
-function Hero() {
+function Projects() {
   return (
     <section>
       Projects
@@ -6,4 +6,4 @@ function Hero() {
   )
 }
 
-export default Hero
+export default Projects

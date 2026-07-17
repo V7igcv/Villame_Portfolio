@@ -1,4 +1,4 @@
-function Hero() {
+function Experience() {
   return (
     <section>
       Experience
@@ -6,4 +6,4 @@ function Hero() {
   )
 }
 
-export default Hero
+export default Experience

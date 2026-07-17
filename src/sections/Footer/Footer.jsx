@@ -1,4 +1,4 @@
-function Hero() {
+function Footer() {
   return (
     <section>
       Footer
@@ -6,4 +6,4 @@ function Hero() {
   )
 }
 
-export default Hero
+export default Footer

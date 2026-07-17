@@ -1,4 +1,4 @@
-function Hero() {
+function Contact() {
   return (
     <section>
       Contact
@@ -6,4 +6,4 @@ function Hero() {
   )
 }
 
-export default Hero
+export default Contact
