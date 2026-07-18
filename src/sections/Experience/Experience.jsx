@@ -49,8 +49,19 @@ function Experience() {
   return (
     <section
       id="experience"
-      className="bg-surface py-32"
+      className="relative overflow-hidden bg-surface py-32"
     >
+      {/* Grid Pattern */}
+
+      <div
+        className="
+          absolute
+          inset-0
+          opacity-[0.03]
+          bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
+          bg-[size:70px_70px]
+        "
+      />
       <motion.div
           initial={{
             opacity: 0,
