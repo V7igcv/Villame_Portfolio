@@ -89,17 +89,32 @@ const technologyGroups = [
 function Skills() {
 
 const [current, setCurrent] = useState(0);
+const [direction, setDirection] = useState(1);
+
+const previousIndex =
+    current === 0
+        ? technologyGroups.length - 1
+        : current - 1;
+
+const nextIndex =
+    current === technologyGroups.length - 1
+        ? 0
+        : current + 1;
 
 const previous = () => {
-  setCurrent((prev) =>
-    prev === 0 ? technologyGroups.length - 1 : prev - 1
-  );
+    setDirection(-1);
+
+    setCurrent((prev) =>
+        prev === 0 ? technologyGroups.length - 1 : prev - 1
+    );
 };
 
 const next = () => {
-  setCurrent((prev) =>
-    prev === technologyGroups.length - 1 ? 0 : prev + 1
-  );
+    setDirection(1);
+
+    setCurrent((prev) =>
+        prev === technologyGroups.length - 1 ? 0 : prev + 1
+    );
 };
 
   return (
@@ -107,13 +122,40 @@ const next = () => {
       id="skills"
       className="bg-background py-32"
     >
-      <div className="mx-auto max-w-7xl px-8">
+      <motion.div 
+          initial={{
+            opacity: 0,
+            x: -60,
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+          }}
+          transition={{
+            duration: 0.8,
+            ease: "easeOut",
+          }}
+          viewport={{
+            once: true,
+            amount: 0.35,
+          }}
+        className="mx-auto max-w-7xl px-8">
 
         {/* Heading */}
 
         <p className="text-primary font-semibold uppercase tracking-[0.3em]">
           Skills
         </p>
+
+          <div
+            className="
+              mt-4
+              h-1
+              w-24
+              rounded-full
+              bg-primary
+            "
+          />
 
         <h2 className="mt-4 font-heading text-5xl font-bold text-text">
           What I Bring to Every Project
@@ -178,217 +220,468 @@ const next = () => {
 
           <div className="flex items-center justify-between">
 
-            <h3 className="text-3xl font-bold text-text">
+            <h3 className="text-2xl font-bold text-text">
               Technical Skills & Tools
             </h3>
-
-            <div className="flex gap-3">
-
-              <button
-                onClick={previous}
-                className="
-                  rounded-full
-                  border
-                  border-white/10
-                  bg-surface
-                  p-4
-                  transition-all
-                  duration-300
-                  hover:border-primary
-                  hover:text-primary
-                  hover:bg-primary
-                    hover:scale-110
-                "
-              >
-                <ChevronLeft size={22}/>
-              </button>
-
-              <button
-                onClick={next}
-                className="
-                  rounded-full
-                  border
-                  border-white/10
-                  bg-surface
-                  p-4
-                  transition-all
-                  duration-300
-                  hover:border-primary
-                  hover:text-primary
-                  hover:bg-primary
-                    hover:scale-110
-                "
-              >
-                <ChevronRight size={22}/>
-              </button>
-
-            </div>
 
           </div>
 
           {/* Card */}
 
-          <AnimatePresence mode="wait">
+          <div
+            className="
+              relative
+              mt-12
+              h-[560px]
+              overflow-hidden
+            "
+          >
 
-            <motion.div
-                key={current}
+              {/* Left Arrow */}
 
-                initial={{
-                    opacity: 0,
-                    x: 80,
-                }}
-
-                animate={{
-                    opacity: 1,
-                    x: 0,
-                }}
-
-                exit={{
-                    opacity: 0,
-                    x: -80,
-                }}
-
-                transition={{
-                    duration: .45,
-                }}
-
-                className="
-                    mt-10
-
-                    rounded-[32px]
-
-                    border
-                    border-white/10
-
-                    bg-surface
-
-                    p-10
-                "
-            >
-
-              <motion.h4
-
-                  initial={{
-                      opacity:0,
-                      y:20,
-                  }}
-
-                  animate={{
-                      opacity:1,
-                      y:0,
-                  }}
-
-                  transition={{
-                      delay:.1,
-                  }}
-
+              <button
+                  onClick={previous}
                   className="
-                      mb-10
+                      absolute
+                      left-2
+                      top-1/2
+                      z-30
+                      -translate-y-1/2
 
-                      text-3xl
-                      font-bold
-
-                      text-primary
-                  "
-              >
-                {technologyGroups[current].title}
-              </motion.h4>
-
-              <div
-                className="
-                  grid
-
-                  grid-cols-3
-
-                  gap-6
-                "
-              >
-
-                {technologyGroups[current].items.map((item, index) => (
-
-                  <motion.div
-
-                      key={item}
-
-                      initial={{
-                          opacity:0,
-                          y:25,
-                      }}
-
-                      animate={{
-                          opacity:1,
-                          y:0,
-                      }}
-
-                      transition={{
-                          delay:index * .08,
-                      }}
-                    className="
-                      group
-
-                      rounded-2xl
-
+                      rounded-full
                       border
                       border-white/10
 
-                      bg-background
+                      bg-surface
 
-                      p-6
+                      p-4
 
                       transition-all
                       duration-300
 
-                      hover:-translate-y-2
-                      hover:border-primary/40
+                      hover:scale-110
+                      hover:border-primary
+                      hover:bg-primary
+                      hover:text-background
+                  "
+              >
+                  <ChevronLeft />
+              </button>
+
+
+
+                {/* Previous Card */}
+
+                <motion.div
+                  key={`prev-${previousIndex}`}
+                  animate={{
+                      x: direction === 1 ? -30 : 30,
+                      opacity: 0.3,
+                      scale: 0.88,
+                  }}
+                  transition={{
+                      duration: .45,
+                      ease: "easeInOut",
+                  }}
+                  className="
+                    absolute
+
+                    left-1/2
+                    top-1/2
+
+                    -translate-y-1/2
+                    -translate-x-[95%]
+
+                    w-[520px]
+                    h-[400px]
+
+                    rounded-3xl
+                    border
+                    border-white/10
+
+                    bg-surface/50
+
+                    p-8
+
+                    flex
+                    flex-col
+
+                    opacity-30
+                    scale-[0.88]
+
+                    blur-[1px]
+
+                    z-10
+                  "
+                >
+                  <h4
+                    className="
+                      mb-8
+                      text-center
+                      text-xl
+                      font-bold
+                      text-primary
                     "
                   >
+                    {technologyGroups[previousIndex].title}
+                  </h4>
 
-                    {/* Placeholder */}
+                  <div
+                      className="
+                          flex-1
+
+                          flex
+                          items-center
+                          justify-center
+                      "
+                  >
+
+                      <div
+                          className="
+                            flex
+                            flex-wrap
+
+                            justify-center
+                            content-center
+
+                            gap-x-8
+                            gap-y-8
+
+                            max-w-[420px]
+                          "
+                      >
+
+                          {technologyGroups[previousIndex].items.map((item) => (
+
+                              <div
+                                  key={item}
+                                  className="
+                                      w-20
+
+                                      flex
+                                      flex-col
+                                      items-center
+
+                                      gap-2
+                                  "
+                              >
+
+                                  <div
+                                      className="
+                                          h-14
+                                          w-14
+
+                                          rounded-xl
+                                          border
+                                          border-white/10
+
+                                          bg-background
+                                      "
+                                  />
+
+                                  <p className="text-center text-sm text-muted">
+                                      {item}
+                                  </p>
+
+                              </div>
+
+                          ))}
+
+                      </div>
+
+                  </div>
+                </motion.div>
+
+                {/* CENTER CARD */}
+
+                <AnimatePresence mode="wait">
+
+                  <motion.div
+                    key={technologyGroups[current].title}
+                    initial={{
+                        opacity:0,
+                        scale:.88,
+                        x: direction > 0 ? 120 : -120,
+                    }}
+                    animate={{
+                        opacity:1,
+                        scale:1,
+                        x:0,
+                    }}
+                    exit={{
+                        opacity:0,
+                        scale:.88,
+                        x: direction > 0 ? -120 : 120,
+                    }}
+                    transition={{
+                        duration:.45,
+                        ease:"easeInOut",
+                    }}
+                    className="
+                    absolute
+
+                    left-1/2
+                    top-1/2
+
+                    -translate-y-1/2
+                    -translate-x-1/2
+
+                    w-[620px]
+                    h-[400px]
+
+                    rounded-3xl
+                    border
+                    border-primary/30
+
+                    bg-surface
+
+                    p-10
+
+                    flex
+                    flex-col
+
+                    shadow-2xl
+
+                    z-20
+                    "
+                  >
+                    <h4
+                      className="
+                        mb-8
+                        text-center
+                        text-2xl
+                        font-bold
+                        text-primary
+                      "
+                    >
+                      {technologyGroups[current].title}
+                    </h4>
 
                     <div
-                      className="
-                        mx-auto
+                        className="
+                            flex-1
 
-                        mb-5
-
-                        flex
-
-                        h-16
-                        w-16
-
-                        items-center
-                        justify-center
-
-                        rounded-xl
-
-                        bg-surface
-
-                        text-xs
-                        text-muted
-                      "
+                            flex
+                            items-center
+                            justify-center
+                        "
                     >
-                      Logo
+
+                        <div
+                            className="
+                              flex
+                              flex-wrap
+
+                              justify-center
+                              content-center
+
+                              gap-x-8
+                              gap-y-8
+
+                              max-w-[420px]
+                            "
+                        >
+
+                            {technologyGroups[current].items.map((item) => (
+
+                                <div
+                                    key={item}
+                                    className="
+                                        w-20
+
+                                        flex
+                                        flex-col
+                                        items-center
+
+                                        gap-2
+                                    "
+                                >
+
+                                    <div
+                                        className="
+                                            h-14
+                                            w-14
+
+                                            rounded-xl
+                                            border
+                                            border-white/10
+
+                                            bg-background
+                                        "
+                                    />
+
+                                    <p className="text-center text-sm text-muted">
+                                        {item}
+                                    </p>
+
+                                </div>
+
+                            ))}
+
+                        </div>
+
                     </div>
-
-                    <p
-                      className="
-                        text-center
-                        font-medium
-                        text-text
-                      "
-                    >
-                      {item}
-                    </p>
 
                   </motion.div>
 
-                ))}
+                </AnimatePresence>
 
-              </div>
+                {/* NEXT CARD */}
 
-            </motion.div>
+                <motion.div
+                  key={`next-${nextIndex}`}
+                  animate={{
+                      x: direction === 1 ? -30 : 30,
+                      opacity: 0.3,
+                      scale: 0.88,
+                  }}
+                  transition={{
+                      duration: .45,
+                      ease: "easeInOut",
+                  }}
+                  className="
+                  absolute
 
-          </AnimatePresence>
+                  left-1/2
+                  top-1/2
+
+                  -translate-y-1/2
+                  translate-x-[5%]
+
+                  w-[520px]
+                  h-[400px]
+
+                  rounded-3xl
+                  border
+                  border-white/10
+
+                  bg-surface/50
+
+                  p-8
+
+                  flex
+                  flex-col
+
+                  opacity-30
+                  scale-[0.88]
+
+                  blur-[1px]
+
+                  z-10
+                  "
+                >
+                  <h4
+                    className="
+                      mb-8
+                      text-center
+                      text-xl
+                      font-bold
+                      text-primary
+                    "
+                  >
+                    {technologyGroups[nextIndex].title}
+                  </h4>
+
+                  <div
+                      className="
+                          flex-1
+
+                          flex
+                          items-center
+                          justify-center
+                      "
+                  >
+
+                      <div
+                          className="
+                            flex
+                            flex-wrap
+
+                            justify-center
+                            content-center
+
+                            gap-x-8
+                            gap-y-8
+
+                            max-w-[420px]
+                          "
+                      >
+
+                          {technologyGroups[nextIndex].items.map((item) => (
+
+                              <div
+                                  key={item}
+                                  className="
+                                      w-20
+
+                                      flex
+                                      flex-col
+                                      items-center
+
+                                      gap-2
+                                  "
+                              >
+
+                                  <div
+                                      className="
+                                          h-14
+                                          w-14
+
+                                          rounded-xl
+                                          border
+                                          border-white/10
+
+                                          bg-background
+                                      "
+                                  />
+
+                                  <p className="text-center text-sm text-muted">
+                                      {item}
+                                  </p>
+
+                              </div>
+
+                          ))}
+
+                      </div>
+
+                  </div>
+                </motion.div>
+
+
+
+              {/* Right Arrow */}
+
+              <button
+                  onClick={next}
+                  className="
+                      absolute
+                      right-2
+                      top-1/2
+                      z-30
+                      -translate-y-1/2
+
+                      rounded-full
+                      border
+                      border-white/10
+
+                      bg-surface
+
+                      p-4
+
+                      transition-all
+                      duration-300
+
+                      hover:scale-110
+                      hover:border-primary
+                      hover:bg-primary
+                      hover:text-background
+                  "
+              >
+                  <ChevronRight />
+              </button>
+
+          </div>
 
           <div
               className="
@@ -434,7 +727,7 @@ const next = () => {
 
         </div>
 
-      </div>
+      </motion.div>
     </section>
   );
 }
