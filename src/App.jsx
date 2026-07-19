@@ -5,6 +5,8 @@ import Skills from "./sections/Skills/Skills";
 import Experience from "./sections/Experience/Experience";
 import Projects from "./sections/Projects/Projects";
 import Education from "./sections/Education/Education";
+import Footer from "./sections/Footer/Footer";
+import ScrollToTop from "./components/common/ScrollToTop";
 
 function App() {
   return (
@@ -22,6 +24,10 @@ function App() {
       <Projects />
 
       <Education />
+
+      <Footer />
+
+      <ScrollToTop />
     </>
   );
 }

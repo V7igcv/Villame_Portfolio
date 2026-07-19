@@ -1,12 +1,30 @@
 import { useRef, useState } from "react";
 
 const links = [
-  "About Me",
-  "Skills",
-  "Experience",
-  "Projects",
-  "Education",
-  "Contact",
+  {
+    label: "About Me",
+    href: "#about",
+  },
+  {
+    label: "Skills",
+    href: "#skills",
+  },
+  {
+    label: "Experience",
+    href: "#experience",
+  },
+  {
+    label: "Projects",
+    href: "#projects",
+  },
+  {
+    label: "Education",
+    href: "#education",
+  },
+  {
+    label: "Contact",
+    href: "#contact",
+  },
 ];
 
 function Navbar() {
@@ -28,6 +46,14 @@ function Navbar() {
     hideTimeout.current = setTimeout(() => {
       setVisible(false);
     }, 1000);
+  };
+
+  const handleLinkClick = () => {
+    if (hideTimeout.current) {
+      clearTimeout(hideTimeout.current);
+    }
+
+    setVisible(false);
   };
 
     return (
@@ -83,8 +109,9 @@ function Navbar() {
         >
             {links.map((link) => (
             <a
-                key={link}
-                href="#"
+                key={link.label}
+                href={link.href}
+                onClick={handleLinkClick}
                 className="
                 relative
 
@@ -117,7 +144,7 @@ function Navbar() {
                 hover:after:w-full
                 "
             >
-                {link}
+                {link.label}
             </a>
             ))}
         </div>

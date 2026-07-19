@@ -2,6 +2,28 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
+import canvaLogo from "../../assets/logos/canva.svg";
+import css3Logo from "../../assets/logos/css-3.svg";
+import figmaLogo from "../../assets/logos/figma.svg";
+import gitLogo from "../../assets/logos/git.svg";
+import githubLogo from "../../assets/logos/github.svg";
+import html5Logo from "../../assets/logos/html-5.svg";
+import jsLogo from "../../assets/logos/javascript.svg";
+import jiraLogo from "../../assets/logos/jira.svg";
+import laravelLogo from "../../assets/logos/laravel.svg";
+import mysqlLogo from "../../assets/logos/mysql.svg";
+import phpLogo from "../../assets/logos/php.svg";
+import postgresqlLogo from "../../assets/logos/postgresql.svg";
+import postmanLogo from "../../assets/logos/postman.svg";
+import reactLogo from "../../assets/logos/react.svg";
+import supabaseLogo from "../../assets/logos/supabase.svg";
+import tailwindLogo from "../../assets/logos/tailwindcss.svg";
+import vercelLogo from "../../assets/logos/vercel.svg";
+import vscodeLogo from "../../assets/logos/vscode.svg";
+import vueLogo from "../../assets/logos/vue.svg";
+import inertiaLogo from "../../assets/logos/inertiajs.svg";
+import workbenchLogo from "../../assets/logos/workbench.svg";
+
 const professional = [
   {
     title: "Business Analysis",
@@ -40,48 +62,114 @@ const technologyGroups = [
   {
     title: "Frontend",
     items: [
-      "React",
-      "Vue.js",
-      "JavaScript",
-      "Tailwind CSS",
-      "HTML5",
-      "CSS3",
+      {
+        name: "React",
+        logo: reactLogo,
+      },
+      {
+        name: "Vue.js",
+        logo: vueLogo,
+      },
+      {
+        name: "JavaScript",
+        logo: jsLogo,
+      },
+      {
+        name: "Tailwind CSS",
+        logo: tailwindLogo,
+      },
+      {
+        name: "HTML5",
+        logo: html5Logo,
+      },
+      {
+        name: "CSS3",
+        logo: css3Logo,
+      },
     ],
   },
   {
     title: "Backend",
     items: [
-      "PHP",
-      "Laravel",
-      "Inertia.js",
+      {
+        name: "PHP",
+        logo: phpLogo,
+      },
+      {
+        name: "Laravel",
+        logo: laravelLogo,
+      },
+      {
+        name: "Inertia.js",
+        logo: inertiaLogo,
+      },
     ],
   },
   {
     title: "Database",
     items: [
-      "MySQL",
-      "PostgreSQL",
-      "Supabase",
+      {
+        name: "MySQL",
+        logo: mysqlLogo,
+      },
+      {
+        name: "PostgreSQL",
+        logo: postgresqlLogo,
+      },
+      {
+        name: "Supabase",
+        logo: supabaseLogo,
+      },
     ],
   },
   {
     title: "Development Tools",
     items: [
-      "Git",
-      "GitHub",
-      "VS Code",
-      "Postman",
-      "MySQL Workbench",
-      "pgAdmin",
-      "Vercel",
+      {
+        name: "Git",
+        logo: gitLogo,
+      },
+      {
+        name: "GitHub",
+        logo: githubLogo,
+      },
+      {
+        name: "VS Code",
+        logo: vscodeLogo,
+      },
+      {
+        name: "Postman",
+        logo: postmanLogo,
+      },
+      {
+        name: "MySQL Workbench",
+        logo: workbenchLogo,
+      },
+      {
+        name: "pgAdmin",
+        logo: postgresqlLogo,
+      },
+      {
+        name: "Vercel",
+        logo: vercelLogo,
+      },
     ],
   },
   {
     title: "Design & Collaboration",
     items: [
-      "Figma",
-      "Canva",
-      "Jira",
+      {
+        name: "Figma",
+        logo: figmaLogo,
+      },
+      {
+        name: "Canva",
+        logo: canvaLogo,
+      },
+      {
+        name: "Jira",
+        logo: jiraLogo,
+      },
     ],
   },
 ];
@@ -143,7 +231,7 @@ const next = () => {
           blur-[120px]
         "
       />
-      
+
       <motion.div 
           initial={{
             opacity: 0,
@@ -373,41 +461,41 @@ const next = () => {
                           "
                       >
 
-                          {technologyGroups[previousIndex].items.map((item) => (
+                            {technologyGroups[previousIndex].items.map((item) => (
 
-                              <div
-                                  key={item}
-                                  className="
-                                      w-20
+                                <div
+                                    key={item}
+                                    className="
+                                        w-20
 
-                                      flex
-                                      flex-col
-                                      items-center
+                                        flex
+                                        flex-col
+                                        items-center
 
-                                      gap-2
-                                  "
-                              >
+                                        gap-2
+                                    "
+                                >
 
-                                  <div
-                                      className="
-                                          h-14
-                                          w-14
-
-                                          rounded-xl
-                                          border
-                                          border-white/10
-
-                                          bg-background
-                                      "
+                                  <img
+                                    src={item.logo}
+                                    alt={item.name}
+                                    className="
+                                      h-14
+                                      w-14
+                                      object-contain
+                                      transition-transform
+                                      duration-300
+                                      hover:scale-110
+                                    "
                                   />
 
-                                  <p className="text-center text-sm text-muted">
-                                      {item}
-                                  </p>
+                                    <p className="text-center text-sm text-muted">
+                                        {item.name}
+                                    </p>
 
-                              </div>
+                                </div>
 
-                          ))}
+                            ))}
 
                       </div>
 
@@ -519,21 +607,21 @@ const next = () => {
                                     "
                                 >
 
-                                    <div
-                                        className="
-                                            h-14
-                                            w-14
-
-                                            rounded-xl
-                                            border
-                                            border-white/10
-
-                                            bg-background
-                                        "
-                                    />
+                                  <img
+                                    src={item.logo}
+                                    alt={item.name}
+                                    className="
+                                      h-14
+                                      w-14
+                                      object-contain
+                                      transition-transform
+                                      duration-300
+                                      hover:scale-110
+                                    "
+                                  />
 
                                     <p className="text-center text-sm text-muted">
-                                        {item}
+                                        {item.name}
                                     </p>
 
                                 </div>
@@ -629,41 +717,41 @@ const next = () => {
                           "
                       >
 
-                          {technologyGroups[nextIndex].items.map((item) => (
+                            {technologyGroups[nextIndex].items.map((item) => (
 
-                              <div
-                                  key={item}
-                                  className="
-                                      w-20
+                                <div
+                                    key={item}
+                                    className="
+                                        w-20
 
-                                      flex
-                                      flex-col
-                                      items-center
+                                        flex
+                                        flex-col
+                                        items-center
 
-                                      gap-2
-                                  "
-                              >
+                                        gap-2
+                                    "
+                                >
 
-                                  <div
-                                      className="
-                                          h-14
-                                          w-14
-
-                                          rounded-xl
-                                          border
-                                          border-white/10
-
-                                          bg-background
-                                      "
+                                  <img
+                                    src={item.logo}
+                                    alt={item.name}
+                                    className="
+                                      h-14
+                                      w-14
+                                      object-contain
+                                      transition-transform
+                                      duration-300
+                                      hover:scale-110
+                                    "
                                   />
 
-                                  <p className="text-center text-sm text-muted">
-                                      {item}
-                                  </p>
+                                    <p className="text-center text-sm text-muted">
+                                        {item.name}
+                                    </p>
 
-                              </div>
+                                </div>
 
-                          ))}
+                            ))}
 
                       </div>
 
