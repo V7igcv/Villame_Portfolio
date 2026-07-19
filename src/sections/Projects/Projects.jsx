@@ -480,10 +480,6 @@ function Projects() {
 
               <div className="mt-10">
 
-                <h4 className="font-semibold text-text">
-                  Tech Stack
-                </h4>
-
                 <div className="mt-5 flex flex-wrap gap-3">
 
                   {projects[currentProject].tech.map((tech) => (
