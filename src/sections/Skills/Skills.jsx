@@ -122,6 +122,28 @@ const next = () => {
       id="skills"
       className="bg-background py-32"
     >
+
+      {/* Background Glow */}
+
+      <div
+        className="
+          absolute
+          left-1/2
+          top-0
+
+          h-[500px]
+          w-[500px]
+
+          -translate-x-1/2
+
+          rounded-full
+
+          bg-primary/5
+
+          blur-[120px]
+        "
+      />
+      
       <motion.div 
           initial={{
             opacity: 0,
