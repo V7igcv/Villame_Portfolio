@@ -206,6 +206,11 @@ function Hero() {
             {/* Primary */}
 
             <button
+              onClick={() =>
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
               className="
                 group
                 rounded-full
@@ -228,6 +233,7 @@ function Hero() {
             {/* Secondary */}
 
             <button
+              href="/resume.pdf"
               className="
                 rounded-full
                 border
@@ -252,6 +258,11 @@ function Hero() {
             {/* Ghost */}
 
             <button
+              onClick={() =>
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
               className="
                 rounded-full
                 border

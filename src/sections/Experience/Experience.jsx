@@ -5,7 +5,7 @@ const experiences = [
     company: "Capstone Project | Bicol University",
     role: "Project Management & Business Analysis",
     duration: "Mar 2025 - Dec 2025",
-    image: "/images/experience/sample2.png",
+    image: "/images/experience/cdrrmo.png",
     description:
       "Coordinated with the Legazpi CDRRMO to analyze evacuation processes from registration through reporting, gathered and translated system requirements into functional specifications, led the project team by planning tasks, setting timelines, and monitoring progress, and prepared key project documentation including the Software Requirements Specification (SRS), use case diagrams, activity diagrams, and other UML artifacts.",
     tags: [
@@ -19,7 +19,7 @@ const experiences = [
     company: "On-the-Job Training | Ligao City Hall",
     role: "Full Stack Development",
     duration: "Feb 2026 - May 2026",
-    image: "/images/experience/sample2.png",
+    image: "/images/experience/Ligao.jpg",
     description:
       "Collaborated with the Ligao City HR Office to analyze City Hall queuing processes, identify operational issues, document functional requirements, and develop a General Queuing System integrating the manual queuing process and ARTA Client Satisfaction Survey into one responsive platform.",
     tags: [
@@ -34,7 +34,7 @@ const experiences = [
     company: "On-the-Job Training | Ligao City Hall",
     role: "Video Editing",
     duration: "Apr 2026 - May 2026",
-    image: "/images/experience/sample2.png",
+    image: "/images/experience/video2.png",
     description:
       "Produced and edited government presentation videos using transitions, animations, graphics, and audio enhancements while collaborating with staff to effectively communicate information.",
     tags: [
@@ -101,11 +101,6 @@ function Experience() {
         <h2 className="mt-4 font-heading text-5xl font-bold text-text">
           Professional Experience
         </h2>
-
-        <p className="mt-6 max-w-3xl text-lg leading-8 text-muted">
-          A journey of solving real-world problems through business analysis,
-          software development, and project collaboration.
-        </p>
 
         {/* Timeline */}
 

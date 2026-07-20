@@ -116,12 +116,6 @@ function Education() {
           Academic Journey
         </h2>
 
-        <p className="mt-6 max-w-3xl text-lg leading-8 text-muted">
-          My educational journey that built the foundation for my
-          technical knowledge, analytical thinking, and passion for
-          software development.
-        </p>
-
         {/* Horizontal Timeline */}
 
         <div className="relative mt-24">

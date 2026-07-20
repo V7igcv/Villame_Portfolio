@@ -33,9 +33,11 @@ const projects = [
     live: "https://www.e-legtas.tech/login",
 
     images: [
-      "/images/projects/elegtas-1.png",
-      "/images/projects/elegtas-2.png",
-      "/images/projects/elegtas-3.png",
+      "/images/projects/e-legtas1.png",
+      "/images/projects/e-legtas2.png",
+      "/images/projects/e-legtas3.png",
+      "/images/projects/e-legtas4.png",
+      "/images/projects/e-legtas5.png",
     ],
   },
 
@@ -72,9 +74,12 @@ const projects = [
     live: "",
 
     images: [
-      "/images/projects/quennect-1.png",
-      "/images/projects/quennect-2.png",
-      "/images/projects/quennect-3.png",
+      "/images/projects/quennect.png",
+      "/images/projects/quennect1.png",
+      "/images/projects/quennect2.png",
+      "/images/projects/quennect3.png",
+      "/images/projects/quennect4.png",
+      "/images/projects/quennect5.png",
     ],
   },
 
@@ -108,9 +113,10 @@ const projects = [
       "https://old-man-and-the-sea.vercel.app/#landing",
 
     images: [
-      "/images/projects/oldman-1.png",
-      "/images/projects/oldman-2.png",
-      "/images/projects/oldman-3.png",
+      "/images/projects/old1.png",
+      "/images/projects/old2.png",
+      "/images/projects/old3.png",
+      "/images/projects/old4.png",
     ],
   },
 
@@ -144,9 +150,9 @@ const projects = [
     live: "",
 
     images: [
-      "/images/projects/elevate-1.png",
-      "/images/projects/elevate-2.png",
-      "/images/projects/elevate-3.png",
+      "/images/projects/elevate1.png",
+      "/images/projects/elevate2.png",
+      "/images/projects/elevate3.png",
     ],
   },
 ];
